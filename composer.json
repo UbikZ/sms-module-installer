@@ -20,6 +20,6 @@
     "composer-plugin-api": "^1.0"
   },
   "extra":{
-    "class":"Exaprint\\Composer\\Installer\\PreflightInstallerPlugin"
+    "class":"SMS\\Composer\\Installer\\SMSInstallerPlugin"
   }
 }
