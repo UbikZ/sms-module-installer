@@ -2,18 +2,26 @@
 
 namespace SMS\Composer\Installer;
 
-use Composer\Composer;
-use Composer\IO\IOInterface;
-use Composer\Plugin\PluginInterface;
+use Composer\Installer\LibraryInstaller;
+use Composer\Package\PackageInterface;
 
 /**
- * Class SMSInstallerPlugin.
+ * Class SMSInstaller
  */
-class SMSInstaller implements PluginInterface
+class SMSInstaller extends LibraryInstaller
 {
-    public function activate(Composer $composer, IOInterface $io)
+    public function getInstallPath(PackageInterface $package)
     {
-        $installer = new SMSInstaller($io, $composer);
-        $composer->getInstallationManager()->addInstaller($installer);
+        $targetDir = $package->getPrettyName();
+
+        return 'src/Module/'.($targetDir ? '/'.$targetDir : '');
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function supports($packageType)
+    {
+        return ('sms-module' === $packageType);
     }
 }
