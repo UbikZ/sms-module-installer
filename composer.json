@@ -1,0 +1,25 @@
+{
+  "name": "sms/module-installer",
+  "type": "composer-plugin",
+  "description":  "Custom installer for SMS application",
+  "keywords": ["installer", "composer", "sms"],
+  "homepage": "http://github.com/ubikz",
+  "license":  "MIT",
+  "authors":[
+    {
+      "name": "UbikZ",
+      "homepage": "https://github.com/ubikz/sms-module-installer/graphs/contributors"
+    }
+  ],
+  "autoload": {
+    "psr-4":  { "SMS\\Composer\\Installer\\": "src" }
+  },
+  "require": {
+    "php": ">=5.3.3",
+    "composer/composer":"1.0.*@dev",
+    "composer-plugin-api": "^1.0"
+  },
+  "extra":{
+    "class":"Exaprint\\Composer\\Installer\\PreflightInstallerPlugin"
+  }
+}
